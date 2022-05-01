@@ -8,6 +8,16 @@ import { User } from './user/user.entity';
 
 @Module({
   imports: [
+    TypeOrmModule.forRoot({
+      type: 'mysql', //Database 설정
+      host: '127.0.0.1', // localhost에서 127.0.0.1로 바꾸니까 서버 실행됌
+      port: 3306,
+      username: 'root',
+      password: "",
+      database: 'hinest',
+      entities: [User], // Entity 연결
+      synchronize: true,
+    }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       debug: false,
@@ -15,16 +25,6 @@ import { User } from './user/user.entity';
       autoSchemaFile: 'schema.gpl'
     }),
     UserModule,
-    TypeOrmModule.forRoot({
-      type: 'mysql', //Database 설정
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'hinest',
-      entities: ['dist/**/*.entity.{ts,js}'], // Entity 연결
-      synchronize: true,
-    }),
     TypeOrmModule.forFeature([User])
   ],
   controllers: [],

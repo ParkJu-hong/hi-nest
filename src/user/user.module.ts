@@ -11,6 +11,9 @@ import { UserResolver } from './user.resolver';
   providers: [ 
     UserService, UserResolver,
   ],
-  exports: [UserService]
+  exports: [
+    TypeOrmModule,
+    UserService
+  ]
 })
 export class UserModule {}

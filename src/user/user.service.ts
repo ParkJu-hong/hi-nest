@@ -7,10 +7,12 @@ import { User } from './user.entity';
 export class UserService {
     constructor(
         @InjectRepository(User)
-        private userRepository : Repository<User>
-    ){}
+        private userRepository: Repository<User>
+    ) { }
 
-    async getHello(): Promise<any>{
-       return this.userRepository.find();
+    async getHello(): Promise<any> {
+        console.log("this.userRepository.find() : ", await this.userRepository.find()[0]);
+        const result = await this.userRepository.find();
+        return result[0];
     }
 }

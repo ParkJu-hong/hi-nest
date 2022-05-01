@@ -8,5 +8,7 @@ export class User{
     @Column()
     name: string;
 
+    @Column()
+    age: number;
 
 }

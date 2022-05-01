@@ -2,6 +2,12 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type User {
+  id: Float
+  name: String
+  age: Float
+}
+
 type Query {
-  getUsers: String!
+  getUser: User!
 }
