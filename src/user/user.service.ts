@@ -13,6 +13,6 @@ export class UserService {
     async getHello(): Promise<any> {
         console.log("this.userRepository.find() : ", await this.userRepository.find()[0]);
         const result = await this.userRepository.find();
-        return result[0];
+        return result[1];
     }
 }
