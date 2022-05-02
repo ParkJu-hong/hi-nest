@@ -10,6 +10,11 @@ export class UserResolver {
     async getUser(): Promise<any>{
         return this.userService.getHello();
     }
+
+    @Query(result => String)
+    async test(): Promise<string>{
+        return '테스트가 잘 될까요?';
+    }
     
 }
 
